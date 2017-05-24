@@ -1,0 +1,20 @@
+api_version: 1
+drush_version: 8
+php_version: 5.6
+
+workflows:
+  deploy:
+    after:
+        - type: webphp
+          description: Post to Slack on deploy
+          script: private/scripts/slack_notification.php
+  sync_code:
+    after:
+        - type: webphp
+          description: Post to Slack on sync code
+          script: private/scripts/slack_notification.php
+  clear_cache:
+    after:
+        - type: webphp
+          description: Post to Slack on cache clear
+          script: private/scripts/slack_notification.php
