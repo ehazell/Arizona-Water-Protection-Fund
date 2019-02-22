@@ -25,21 +25,13 @@ body {
   background-color: #eae5d9;
 }
 
-#search-block-form .btn-primary{
-  background-color:#232323;
-}
-
 #zone-branding {
   background-color: #547d79;
   .region-menu ul.menu ul {
     a:hover {
-      background-color: #547d79 !important;
+      background-color: #5c8984 !important;
       color: #ffffff !important;
     }
-  }
-  .nav > li > a:focus {
-    color: #547d79;
-    background-color: #ffffff;
   }
 }
 
@@ -89,4 +81,3 @@ p.file, div.file, span.file, a.file, div.more-link, a.more-link {
     }
   }
 }
-

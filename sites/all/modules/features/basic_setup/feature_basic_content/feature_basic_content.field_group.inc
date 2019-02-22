@@ -52,18 +52,18 @@ function feature_basic_content_field_group_info() {
     'weight' => '6',
     'children' => array(
       0 => 'body',
-      1 => 'field_screen_reader_only_title',
-      2 => 'title',
+      1 => 'title',
+      2 => 'field_screen_reader_only_title',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
-      'label' => 'Basic Page',
+      'formatter' => 'closed',
       'instance_settings' => array(
-        'required_fields' => 1,
-        'classes' => 'group-tabs-basic field-group-htab',
         'description' => '',
+        'classes' => 'group-tabs-basic field-group-htab',
+        'required_fields' => 1,
+        'id' => '',
       ),
-      'formatter' => 'open',
     ),
   );
   $field_groups['group_tabs_basic|node|basic_page|form'] = $field_group;
@@ -85,13 +85,13 @@ function feature_basic_content_field_group_info() {
     ),
     'format_type' => 'htab',
     'format_settings' => array(
-      'label' => '"Quicktabs"',
+      'formatter' => 'closed',
       'instance_settings' => array(
-        'required_fields' => 1,
-        'classes' => 'group-tabs-quicktabs field-group-htab',
         'description' => '',
+        'classes' => 'group-tabs-quicktabs field-group-htab',
+        'required_fields' => 1,
+        'id' => '',
       ),
-      'formatter' => 'open',
     ),
   );
   $field_groups['group_tabs_quicktabs|node|basic_page|form'] = $field_group;

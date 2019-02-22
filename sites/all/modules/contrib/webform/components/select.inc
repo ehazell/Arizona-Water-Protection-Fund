@@ -965,11 +965,11 @@ function _webform_select_options_info() {
 /**
  * Execute a select option callback.
  *
- * @param string $name
+ * @param $name
  *   The name of the options group.
- * @param array $component
+ * @param $component
  *   The full Webform component.
- * @param bool $flat
+ * @param $flat
  *   Whether the information returned should exclude any nested groups.
  */
 function _webform_select_options_callback($name, $component, $flat = FALSE) {

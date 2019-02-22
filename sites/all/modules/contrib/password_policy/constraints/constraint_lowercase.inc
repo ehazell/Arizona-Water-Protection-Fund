@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Password policy constraint callbacks.
@@ -27,9 +26,14 @@ function password_policy_constraint_lowercase_error($constraint) {
  * Password validation.
  */
 function password_policy_constraint_lowercase_validate($password, $constraint, $account) {
-  $matches = array();
-  $count = preg_match_all('/[a-z]/', $password, $matches);
-  return $count >= $constraint;
+  $chars = drupal_strlen($password);
+  $num = 0;
+  for ($i = 0; $i < $chars; ++$i) {
+    if (ctype_lower(drupal_substr($password, $i, 1))) {
+      $num++;
+    }
+  }
+  return $num >= $constraint;
 }
 
 /**
@@ -38,9 +42,20 @@ function password_policy_constraint_lowercase_validate($password, $constraint, $
 function password_policy_constraint_lowercase_js($constraint, $account) {
   return <<<JS
 
-    var count = (value.match(/[a-z]/g) || []).length;
-    if (count < $constraint) {
-      strength = 'low';
+    var i = 0;
+    var num = 0;
+    var chr = "";
+    while (i < value.length) {
+      chr = value.charAt(i);
+      if (chr.toUpperCase() != chr.toLowerCase()) {
+        if (chr == chr.toLowerCase()) {
+          num++;
+        }
+      }
+      i++;
+    }
+    if (num < $constraint) {
+      strength = "low";
       msg.push(translate.constraint_lowercase);
     }
 JS;

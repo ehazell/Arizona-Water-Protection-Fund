@@ -5,19 +5,18 @@
  * Common helper functions used by custom breadcrumbs submodules.
  */
 
-/**
- * Determines if two paths match, allowing for wildcards and aliases.
+/** * Determines if two paths match, allowing for wildcards and aliases.
  *
- * @param string $curpath
+ * @param $curpath
  *   The current Drupal path.
- * @param string $breadcrumb_path
+ * @param $breadcrumb_path
  *   The path that the breadcrumb applies to.
  *
- * @return bool
- *   TRUE (1) if the paths match, FALSE (0) otherwise.
+ * @return
+ *    TRUE (1) if the paths match, FALSE (0) otherwise.
  */
 function _custom_breadcrumbs_match_path($curpath, $breadcrumb_path) {
-
+ 
   $path = drupal_get_path_alias($curpath);
   // Compare with the internal and path alias (if any).
   $page_match = drupal_match_path(drupal_strtolower($path), drupal_strtolower($breadcrumb_path));
@@ -30,10 +29,12 @@ function _custom_breadcrumbs_match_path($curpath, $breadcrumb_path) {
 /**
  * Constructs the view path replacing wildcards with arguments.
  *
- * @param object $display
+ * @param $display
  *   The view $display object.
+ * @param $viewsargs
+ *   The $view->args array.
  *
- * @return viewpath
+ * @return $viewpath
  *   The complete path to the view.
  */
 function _custom_breadcrumbs_construct_view_path($display) {
@@ -57,24 +58,20 @@ function _custom_breadcrumbs_construct_view_path($display) {
 }
 
 /**
- * Allowed Display.
+ *  Determines if a view display is appropriate for assigning a custom breadcrumb.
  *
- * Determines if a view display is appropriate for assigning a custom
- * breadcrumb.
- *
- * @param object $display
+ * @param $display
  *   The view $display object.
  *
- * @return bool
- *   TRUE if the display should be considered for a custom breadcrumb, FALSE
- *   otherwise.
+ * @return
+ *   TRUE if the display should be considered for a custom breadcrumb, FALSE otherwise.
  */
 function _custom_breadcrumbs_allowed_display($display) {
   // @todo Changes needed for D7?
   $allowed_display_types = array('page', 'calendar', 'image_gallery');
   if (in_array($display->display_plugin, $allowed_display_types)) {
     if (!(isset($display->handler->view->is_attachment) && $display->handler->view->is_attachment)) {
-      if (isset($display->display_options['path'])) {
+      if (isset($display->display_options['path']) ) {
         if (module_exists('panels') && panels_get_current_page_display()) {
           return FALSE;
         }
@@ -86,21 +83,18 @@ function _custom_breadcrumbs_allowed_display($display) {
 }
 
 /**
- * Returns the appropriate type and value of each view argument.
+ *  Returns the appropriate type and value of each view argument.
  *
- * @param array $arguments
+ * @param $display_argument_ids
  *   An array of ids for each argument of the view.
- * @param array $viewargs
+ * @param $viewargs
  *   The $display->handler->view->args array.
  *
- * @return arg_values
- *   An associative array of two elements, 'types' and 'values', each an array
- *   with elements corresponding to the views arguments.
- *
- * @codingStandardsIgnoreStart
+ * @return $arg_values
+ *   An associative array of two elements, 'types' and 'values', each an array with elements
+ *   corresponding to the views arguments.
  */
 function _custom_breadcrumbs_views_parse_args($arguments, $viewargs) {
-  // @codingStandardsIgnoreEnd
   // @todo Changes needed for D7?
   $arg_values = array(
     'types' => array(),
@@ -132,21 +126,18 @@ function _custom_breadcrumbs_views_parse_args($arguments, $viewargs) {
 }
 
 /**
- * Views token types.
+ * Obtains the appropriate objects for token type replacement for a view display.
  *
- * Obtains the appropriate objects for token type replacement for a view
- * display.
- *
- * @param object $display
+ * @param $display
  *   The view $display object.
  *
- * @return objs
+ * @return $objs
  *   An associate array of objects to use for token replacement.
  */
 function _custom_breadcrumbs_views_token_types($display) {
   // @todo Changes needed for D7?
   $objs = array();
-  // Check to see if the current display has overridden the default arguments.
+  // Check to see if the current display has overriden the default arguments.
   $arguments = _custom_breadcrumbs_views_display_arguments($display);
   if (isset($arguments) && !empty($arguments)) {
     $viewargs = (isset($display->handler->view->args) && is_array($display->handler->view->args)) ? $display->handler->view->args : array();
@@ -156,11 +147,9 @@ function _custom_breadcrumbs_views_token_types($display) {
         case 'tid':
           $objs['taxonomy'] = taxonomy_term_load($arg_values['values'][$key]);
           break;
-
         case 'nid':
           $objs['node'] = node_load($arg_values['values'][$key]);
           break;
-
         case 'uid':
           $objs['user'] = user_load($arg_values['values'][$key]);
           break;
@@ -173,17 +162,17 @@ function _custom_breadcrumbs_views_token_types($display) {
 /**
  * Extracts the views display option arguments array from the display.
  *
- * @param object $display
+ * @param $display
  *   The view $display object.
  *
- * @return arguments
+ * @return $arguments
  *   The view display option arguments array.
  */
 function _custom_breadcrumbs_views_display_arguments($display) {
   // @todo Changes for D7?
   $arguments = NULL;
   if (isset($display->handler->view->display[$display->id]->display_options['arguments'])) {
-    $arguments = $display->handler->view->display[$display->id]->display_options['arguments'];
+    $arguments =$display->handler->view->display[$display->id]->display_options['arguments'];
   }
   if (!isset($arguments) && isset($display->handler->view->display['default']->display_options['arguments'])) {
     $arguments = $display->handler->view->display['default']->display_options['arguments'];
@@ -194,13 +183,12 @@ function _custom_breadcrumbs_views_display_arguments($display) {
 /**
  * Parses a comma or plus separated string of term IDs.
  *
- * @param string $str_tids
+ * @param $str_tids
  *   A string of term IDs, separated by plus or comma.
  *   comma (,) means AND
- *   plus (+) means OR.
+ *   plus (+) means OR
  *
- * @return array
- *   an associative array with an operator key (either 'and'
+ * @return an associative array with an operator key (either 'and'
  *   or 'or') and a tid key containing an array of the term ids.
  */
 function custom_breadcrumbs_taxonomy_terms_parse_string($str_tids) {
@@ -213,7 +201,7 @@ function custom_breadcrumbs_taxonomy_terms_parse_string($str_tids) {
     // The '+' character in a query string may be parsed as ' '.
     $terms['tids'] = preg_split('/[+ ]/', $str_tids);
   }
-  elseif (preg_match('/^([0-9]+,)*[0-9]+$/', $str_tids)) {
+  else if (preg_match('/^([0-9]+,)*[0-9]+$/', $str_tids)) {
     $terms['operator'] = 'and';
     $terms['tids'] = explode(',', $str_tids);
   }

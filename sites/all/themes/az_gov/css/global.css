@@ -317,25 +317,7 @@ html, body {
 #zone-content {
   display: block;
   width: 100%;
-}
-@media (min-width: 901px) {
-  #zone-content {
-    padding-bottom: 320px;
-  }
-}
-@media (max-width: 768px) {
-  #zone-content {
-    display: block;
-    width: 100%;
-    padding-bottom: 575px;
-  }
-}
-@media (min-width: 769px) and (max-width: 900px) {
-  #zone-content {
-    display: block;
-    width: 100%;
-    padding-bottom: 400px;
-  }
+  padding-bottom: 260px;
 }
 #zone-content h2 {
   text-transform: uppercase;
@@ -498,13 +480,10 @@ html, body {
   bottom: 0;
   width: 100%;
   display: block;
+  height: 240px;
 }
 #zone-footer .region {
   padding: 0;
-}
-#zone-footer #region-footer-second {
-  display: inline-block;
-  width: 100%;
 }
 #zone-footer .region-footer-second p {
   margin-bottom: 0;
@@ -519,13 +498,12 @@ html, body {
   display: inline-block;
   letter-spacing: 0.02em;
   list-style: none outside none;
-  margin: 0px 10px 0px 0;
+  margin: 0 10px 5px 0;
   padding-bottom: 0;
   text-transform: uppercase;
 }
 #zone-footer .region-footer-second ul.menu li:hover > a, #zone-footer .region-footer-second ul.menu li:focus-within > a, #zone-footer .region-footer-second ul.menu .focus-within > a {
   color: #000;
-  background-color: #eee;
 }
 #zone-footer .region-footer-second ul.menu a {
   padding: 5px 15px;
@@ -945,8 +923,4 @@ table caption {
 
 .node-webform .form-actions .btn-primary {
   background-color: #00829b !important;
-}
-
-#search-block-form .btn-primary {
-  border-color: transparent;
 }

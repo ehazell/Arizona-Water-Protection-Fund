@@ -25,10 +25,10 @@ function feature_basic_content_context_default_contexts() {
   );
   $id = 8;
   foreach(variable_get('mbp_defaults') as $field){
-    if($field == 'field_basic_slideshow_assignment'){
-      $field = field_info_field($field);
-      $id = $field['id'];
-    }
+      if($field == 'field_basic_slideshow_assignment'){
+          $field = field_info_field($field);
+          $id = $field['id'];
+      }
   }
   $context->reactions = array(
     'block' => array(

@@ -23,6 +23,7 @@ function feature_basic_config_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Sitemap';
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -72,13 +73,9 @@ function feature_basic_config_views_default_views() {
   $handler->display->display_options['arguments']['title']['field'] = 'title';
   $handler->display->display_options['arguments']['title']['default_action'] = 'default';
   $handler->display->display_options['arguments']['title']['exception']['title_enable'] = TRUE;
-  $handler->display->display_options['arguments']['title']['title_enable'] = TRUE;
-  $handler->display->display_options['arguments']['title']['title'] = 'Sitemap: %1';
   $handler->display->display_options['arguments']['title']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['title']['default_argument_options']['argument'] = 'a';
-  $handler->display->display_options['arguments']['title']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['title']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['title']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['title']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['title']['glossary'] = TRUE;
   $handler->display->display_options['arguments']['title']['limit'] = '1';

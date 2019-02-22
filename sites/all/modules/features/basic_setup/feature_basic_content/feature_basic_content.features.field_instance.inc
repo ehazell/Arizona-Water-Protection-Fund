@@ -602,7 +602,6 @@ function feature_basic_content_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(
         'apply_chosen' => '',
-        'use_select2' => FALSE,
       ),
       'type' => 'options_select',
       'weight' => 3,
@@ -636,7 +635,6 @@ function feature_basic_content_field_default_field_instances() {
           'slideshow_colorbox_slideshow_speed' => 4000,
           'slideshow_colorbox_speed' => 350,
           'slideshow_colorbox_transition' => 'elastic',
-          'slideshow_content_type' => 'image',
           'slideshow_controls' => 1,
           'slideshow_controls_pause' => 0,
           'slideshow_controls_position' => 'after',
@@ -652,7 +650,6 @@ function feature_basic_content_field_default_field_instances() {
           'slideshow_speed' => 2000,
           'slideshow_start_on_hover' => 0,
           'slideshow_timeout' => 10000,
-          'slideshow_view_mode' => 'full',
         ),
         'type' => 'slideshow',
         'weight' => 0,
@@ -711,7 +708,6 @@ function feature_basic_content_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(
         'apply_chosen' => '',
-        'use_select2' => FALSE,
       ),
       'type' => 'options_select',
       'weight' => 2,

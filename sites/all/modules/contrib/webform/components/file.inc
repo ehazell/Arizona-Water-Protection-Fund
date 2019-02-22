@@ -191,6 +191,20 @@ function _webform_edit_file($component) {
     '#parents' => array('extra', 'progress_indicator'),
   );
 
+  // @todo: Make managed_file respect the "size" parameter.
+  /*
+  $form['display']['width'] = array(
+  '#type' => 'textfield',
+  '#title' => t('Width'),
+  '#default_value' => $component['extra']['width'],
+  '#description' => t('Width of the file field.') . ' ' . t('Leaving blank will use the default size.'),
+  '#size' => 5,
+  '#maxlength' => 10,
+  '#weight' => 4,
+  '#parents' => array('extra', 'width')
+  );
+   */
+
   return $form;
 }
 
@@ -377,7 +391,7 @@ function _webform_render_file($component, $value = NULL, $filter = TRUE, $submis
  * wrapper around the element with the element's id, thereby creating 2 elements
  * with the same id.
  *
- * @param array $variables
+ * @param $variables
  *   An associative array containing:
  *   - element: A render element representing the file.
  *
@@ -415,9 +429,8 @@ function _webform_submit_file($component, $value) {
   $fid = is_array($value)
             ? (!empty($value['fid']) ? $value['fid'] : '')
             : (!empty($value) ? $value : '');
-  // Extend access to this file, even if the submission has not been saved yet.
-  // This may happen when previewing a private file which was selected but not
-  // explicitly uploaded, and then previewed.
+  // Extend access to this file, even if the submission has not been saved yet. This may happen when
+  // previewing a private file which was selected but not explicitly uploaded, and then previewed.
   if ($fid) {
     $_SESSION['webform_files'][$fid] = $fid;
   }
@@ -632,13 +645,13 @@ function webform_file_rename($node, $submission) {
 /**
  * Renames the uploaded file name using tokens.
  *
- * @param object $node
+ * @param $node
  *   The webform node object.
- * @param object $submission
+ * @param $submission
  *   The webform submission object.
- * @param array $component
+ * @param $component
  *   Component settings array for which fid is going to be processed.
- * @param int $fid
+ * @param $fid
  *   A file id to be processed.
  */
 function webform_file_process_rename($node, $submission, $component, $fid) {

@@ -20,19 +20,10 @@ body {
   background-color: #547d79;
   .region-menu ul.menu ul, .region-menu ul.focus-within > ul {
     a:hover, a:focus  {
-      background-color: #547d79 !important;
+      background-color: #5c8984 !important;
       color: #ffffff !important;
     }
-
   }
-  .nav > li > a:focus {
-    color: #547d79;
-    background-color: #ffffff;
-  }
-}
-
-#search-block-form .btn-primary{
-  background-color:#232323;
 }
 
 #zone-footer {
@@ -60,6 +51,14 @@ body {
   }
 }
 
+//#breadcrumb, #zone-header .region {
+//  background-color: #262626;
+//}
+//
+//#zone-header .region {
+//  color: #ffffff;
+//}
+
 #preface-group {
   background-color: #d9e5e8;
   h2.title, .block-title {
@@ -82,4 +81,3 @@ p.file, div.file, span.file, a.file, div.more-link, a.more-link {
     }
   }
 }
-

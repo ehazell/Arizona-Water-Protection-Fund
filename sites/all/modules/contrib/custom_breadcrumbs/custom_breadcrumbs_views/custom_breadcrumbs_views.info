@@ -6,13 +6,12 @@ description = Provides custom breadcrumbs for views pages.
 core = 7.x
 configure = admin/config/user-interface/custom-breadcrumbs
 
-# @codingStandardsIgnoreLine
 files[] = custom_breadcrumbs_views.install
-# @codingStandardsIgnoreLine
 files[] = custom_breadcrumbs_views.module
 
-; Information added by Drupal.org packaging script on 2019-01-21
-version = "7.x-2.0-beta1+31-dev"
+; Information added by Drupal.org packaging script on 2014-09-09
+version = "7.x-2.0-beta1"
 core = "7.x"
 project = "custom_breadcrumbs"
-datestamp = "1548092884"
+datestamp = "1410287363"
+

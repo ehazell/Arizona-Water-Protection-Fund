@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Password policy constraint callbacks.
@@ -38,7 +37,7 @@ function password_policy_constraint_length_js($constraint, $account) {
   return <<<JS
 
     if (!value.length || value.length < $constraint) {
-      strength = 'low';
+      strength = "low";
       msg.push(translate.constraint_length);
     }
 JS;

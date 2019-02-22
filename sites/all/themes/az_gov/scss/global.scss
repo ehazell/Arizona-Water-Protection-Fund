@@ -346,19 +346,7 @@ html, body {
 #zone-content {
   display: block;
   width: 100%;
-  @media(min-width: 901px){
-    padding-bottom:320px;
-  }
-  @media(max-width: 768px){
-      display: block;
-      width: 100%;
-      padding-bottom: 575px;
-  }
-  @media(min-width: 769px) and (max-width: 900px){
-      display: block;
-      width: 100%;
-      padding-bottom: 400px;
-  }
+  padding-bottom:260px;
 
 
   h2 {
@@ -535,13 +523,11 @@ html, body {
   bottom: 0;
   width: 100%;
   display: block;
+  height:240px;
   .region {
     padding: 0;
   }
-  #region-footer-second {
-    display: inline-block;
-    width: 100%;
-  }
+
   .region-footer-second {
     p {
       margin-bottom: 0;
@@ -555,13 +541,12 @@ html, body {
         display: inline-block;
         letter-spacing: 0.02em;
         list-style: none outside none;
-        margin: 0px 10px 0px 0;
+        margin: 0 10px 5px 0;
         padding-bottom: 0;
         text-transform: uppercase;
       }
       li:hover > a, li:focus-within > a, .focus-within > a {
         color: #000;
-        background-color:#eee;
       }
       a {
         padding: 5px 15px;
@@ -1017,6 +1002,4 @@ table {
   }
 }
 
-#search-block-form .btn-primary {
-  border-color: transparent;
-}
+
