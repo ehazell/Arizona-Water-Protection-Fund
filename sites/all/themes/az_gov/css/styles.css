@@ -4,6 +4,13 @@
 	}
 }
 
+@media (min-width: 768px) {
+	#footer-first-contact #footer-contact, #footer-first-contact #footer-state-seal {
+	float: right;
+	width: 50%;
+	}
+}
+
 
 
 #content-wrapper {
@@ -23,6 +30,7 @@
 
 #footer-contact {
 	background: none !important;
+	margin: 15px 0 !important;
 }
 
 #footer-contact .footer-info .footer-address {
@@ -32,4 +40,19 @@
 
 #footer-contact .footer-info .footer-phone-group {
 	margin-top: 0px !important;
+}
+
+#footer-contact .footer-info .footer-address .footer-agency {
+	font-weight: bold;
+	font-size: 24px !important;
+}
+
+#footer-contact .footer-field {
+	color: #fff !important;
+}
+
+#footer-contact .footer-info .footer-field {
+	border: none !important;
+	padding: 3px 0;
+	font-size: 18px !important;
 }
