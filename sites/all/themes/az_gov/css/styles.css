@@ -22,6 +22,11 @@
 	margin: 20px auto !important;
 }
 
+#breadcrumb ul.breadcrumb a.active,
+.breadcrumb > li + li:before {
+    color: #292929 !important;
+}
+
 div#block-mbp-defaults-mbp-12 {
     margin-top: 30px;
 }
