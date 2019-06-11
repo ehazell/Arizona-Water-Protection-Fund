@@ -11,7 +11,11 @@
 	}
 }
 
-
+@media (min-width: 400px) {
+	#footer-contact .footer-info .footer-address {
+    width: 100% !important;
+	}
+}
 
 #content-wrapper {
 	box-shadow: 0 6px 7px -1px rgba(0, 0, 0, 0.5);
@@ -36,6 +40,7 @@
 #footer-contact .footer-info .footer-address {
 	box-shadow: none !important; 
 	background: none !important;
+	text-align: right;
 }
 
 #footer-contact .footer-info .footer-phone-group {
