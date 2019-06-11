@@ -1,3 +1,11 @@
+@media (min-width: 450px) {
+	#footer-contact .footer-info .footer-address > div {
+	width: 100% !important;
+	}
+}
+
+
+
 #content-wrapper {
 	box-shadow: 0 6px 7px -1px rgba(0, 0, 0, 0.5);
 	margin: 20px auto !important;
@@ -11,4 +19,17 @@
 	padding: 0 20px;
 	margin-top: 45px;
 	margin-bottom: 45px;
+}
+
+#footer-contact {
+	background: none !important;
+}
+
+#footer-contact .footer-info .footer-address {
+	box-shadow: none !important; 
+	background: none !important;
+}
+
+#footer-contact .footer-info .footer-phone-group {
+	margin-top: 0px !important;
 }
