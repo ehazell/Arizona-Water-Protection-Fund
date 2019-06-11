@@ -22,6 +22,10 @@
 	margin: 20px auto !important;
 }
 
+#breadcrumb {
+    background-color: #dcd2c3 !important;
+}
+
 #breadcrumb ul.breadcrumb a.active,
 .breadcrumb > li + li:before {
     color: #292929 !important;
