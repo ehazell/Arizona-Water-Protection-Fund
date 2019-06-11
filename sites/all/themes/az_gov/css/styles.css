@@ -22,9 +22,9 @@
 	margin: 20px auto !important;
 }
 
-/*#zone-header {
-	margin: 0px 0 10px !important;
-}*/
+div#block-mbp-defaults-mbp-12 {
+    margin-top: 30px;
+}
 
 .meeting-description {
 	padding: 0 20px;
