@@ -17,6 +17,13 @@
 	}
 }
 
+@media (min-width: 992px), all {
+	.col-md-9 {
+	width: 74%;
+	}	
+}
+
+
 #content-wrapper {
 	box-shadow: 0 6px 7px -1px rgba(0, 0, 0, 0.5);
 	margin: 20px auto !important;
