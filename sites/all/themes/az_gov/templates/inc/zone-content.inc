@@ -30,7 +30,7 @@
 
 
     <?php if ($page['sidebar_first']) : ?>
-      <aside id="sidebar-first" class="col-sm-4 col-md-3 main-region">
+      <aside id="sidebar-first" class="col-sm-12 col-md-3 main-region">
         <?php print render($page['sidebar_first']); ?>
       </aside>
     <?php endif; ?>
@@ -53,7 +53,7 @@
 
 
     <?php if ($page['sidebar_second']) : ?>
-      <aside id="sidebar-second" class="col-sm-4 col-md-4 main-region">
+      <aside id="sidebar-second" class="col-sm-12 col-md-3 main-region">
         <?php print render($page['sidebar_second']); ?>
       </aside>
     <?php endif; ?>
