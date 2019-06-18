@@ -63,18 +63,18 @@ function az_gov_preprocess_page(&$vars) {
     $vars['persistent_site_name'] = variable_get('site_name', '');
 
     //checks for existence of the sidebars and will create variable to wrap the main content region
-    if ($vars['page']['sidebar_first'] && !$vars['page']['sidebar_second']) {
-        $vars['content_class'] = 'col-sm-9 col-md-10';
-    }
-    elseif (!$vars['page']['sidebar_first'] && $vars['page']['sidebar_second']) {
-        $vars['content_class'] = 'col-sm-8 col-md-8';
-    }
-    elseif ($vars['page']['sidebar_first'] && $vars['page']['sidebar_second']) {
-        $vars['content_class'] = 'col-sm-5 col-md-6';
-    }
-    else {
-        $vars['content_class'] = '';
-    }
+      if ($vars['page']['sidebar_first'] && !$vars['page']['sidebar_second']) {
+        $vars['content_class'] = 'col-sm-12 col-md-9 col-xs-12';
+      }
+      elseif (!$vars['page']['sidebar_first'] && $vars['page']['sidebar_second']) {
+        $vars['content_class'] = 'col-sm-12 col-md-9 col-xs-12';
+      }
+      elseif ($vars['page']['sidebar_first'] && $vars['page']['sidebar_second']) {
+        $vars['content_class'] = 'col-sm-12 col-md-7 col-xs-12';
+      }
+      else {
+        $vars['content_class'] = 'col-md-12';
+      }
 
     //checks for the number of regions in the preface area being used and will wrap them in an appropriate class
     $num_preface = 0;
@@ -89,15 +89,15 @@ function az_gov_preprocess_page(&$vars) {
     }
     switch ($num_preface) {
         case 2:
-            $vars['preface_first'] = 'col-sm-6';
-            $vars['preface_second'] = 'col-sm-6';
-            $vars['preface_third'] = 'col-sm-6';
-            break;
+          $vars['preface_first'] = 'col-sm-6 col-xs-12';
+          $vars['preface_second'] = 'col-sm-6 col-xs-12';
+          $vars['preface_third'] = 'col-sm-6 col-xs-12';
+          break;
         case 3:
-            $vars['preface_first'] = 'col-md-4';
-            $vars['preface_second'] = 'col-sm-6 col-md-4';
-            $vars['preface_third'] = 'col-sm-6 col-md-4';
-            break;
+          $vars['preface_first'] = 'col-md-4 col-xs-12';
+          $vars['preface_second'] = 'col-sm-6 col-md-4 col-xs-12';
+          $vars['preface_third'] = 'col-sm-6 col-md-4 col-xs-12';
+          break;
         default:
             $vars['preface_first'] = '';
             $vars['preface_second'] = '';
@@ -119,27 +119,23 @@ function az_gov_preprocess_page(&$vars) {
         $num_postscripts += 1;
     }
 
-    switch ($num_postscripts) {
-        case 2:
-            $vars['postscript'] = 'col-sm-6';
-            $vars['postscript_num'] = 'two-postscript';
-            break;
-        case 3:
-            $vars['postscript'] = 'col-sm-4';
-            $vars['postscript_num'] = 'three-postscript';
-            break;
-        case 4:
-            $vars['postscript'] = 'col-sm-6 col-md-3';
-            $vars['postscript_num'] = 'four-postscript';
-            break;
-        default:
-            $vars['postscript'] = '';
-            $vars['postscript_num'] = 'single-postscript';
-    }
-
-
-
-
+     switch ($num_postscripts) {
+    case 2:
+      $vars['postscript'] = 'col-sm-6 col-xs-12';
+      $vars['postscript_num'] = 'two-postscript';
+      break;
+    case 3:
+      $vars['postscript'] = 'col-sm-4 col-xs-12';
+      $vars['postscript_num'] = 'three-postscript';
+      break;
+    case 4:
+      $vars['postscript'] = 'col-sm-6 col-md-3 col-xs-12';
+      $vars['postscript_num'] = 'four-postscript';
+      break;
+    default:
+      $vars['postscript'] = '';
+      $vars['postscript_num'] = 'single-postscript';
+  }
 }
 
 /**

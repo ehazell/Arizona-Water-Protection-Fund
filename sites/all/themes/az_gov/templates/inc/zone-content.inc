@@ -30,7 +30,7 @@
 
 
     <?php if ($page['sidebar_first']) : ?>
-      <aside id="sidebar-first" class="col-sm-3 col-md-2 main-region">
+      <aside id="sidebar-first" class="col-sm-4 col-md-3 main-region">
         <?php print render($page['sidebar_first']); ?>
       </aside>
     <?php endif; ?>
