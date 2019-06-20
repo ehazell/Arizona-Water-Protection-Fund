@@ -3,12 +3,12 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font: 13px/1.5 Verdana, Helvetica, Arial, sans-serif;
+  font: 13px/1.5 'Roboto', sans-serif;
 }
 
 #page, #colorbox {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 1.0em;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.20em;
   width: 100%;
   display: block;
   min-height: 100%;
