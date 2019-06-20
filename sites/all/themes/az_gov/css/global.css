@@ -75,7 +75,7 @@ html, body {
 }
 #page h1, #page h2, #page h3, #page h4, #page h5, #colorbox h1, #colorbox h2, #colorbox h3, #colorbox h4, #colorbox h5 {
   color: #600;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   text-transform: uppercase;
   margin: 10px 0 10px;
@@ -96,12 +96,12 @@ html, body {
   border-bottom: 4px solid #dcd2c3;
   padding: 15px 0 7px;
   margin-bottom: 10px;
-  /*font-size: 1.3em;*/
+  font-size: 26px;
   text-transform: none;
   color: #600;
 }
 #page h3, #page h4, #page h5, #page h6, #colorbox h3, #colorbox h4, #colorbox h5, #colorbox h6 {
-  /*font-size: 1.0em;*/
+  font-size: 24px;
 }
 #page .node li.views-row, #colorbox .node li.views-row {
   list-style-type: none;
@@ -230,7 +230,7 @@ html, body {
 }
 #zone-branding .site-details .site-info .site-name {
   font-size: 26px;
-  font-family: "Times New Roman",Georgia,Times,serif;
+  font-family: 'Roboto', sans-serif;
   color: #FFF;
   display: inline;
   text-decoration: none;
