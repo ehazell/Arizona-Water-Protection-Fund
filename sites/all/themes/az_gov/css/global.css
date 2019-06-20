@@ -8,7 +8,7 @@ html, body {
 
 #page, #colorbox {
   font-family: 'Roboto', sans-serif;
-  font-size: 1.20em;
+  font-size: 1.10em;
   width: 100%;
   display: block;
   min-height: 100%;
@@ -96,12 +96,12 @@ html, body {
   border-bottom: 4px solid #dcd2c3;
   padding: 15px 0 7px;
   margin-bottom: 10px;
-  font-size: 1.3em;
+  /*font-size: 1.3em;*/
   text-transform: none;
   color: #600;
 }
 #page h3, #page h4, #page h5, #page h6, #colorbox h3, #colorbox h4, #colorbox h5, #colorbox h6 {
-  font-size: 1.0em;
+  /*font-size: 1.0em;*/
 }
 #page .node li.views-row, #colorbox .node li.views-row {
   list-style-type: none;
