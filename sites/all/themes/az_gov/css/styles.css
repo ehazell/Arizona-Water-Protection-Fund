@@ -12,11 +12,11 @@ body {
 	 }
 }
 
-@media (max-width: 767px) {
+/*@media (max-width: 767px) {
 	.embed-responsive-16by9 {
 		padding-bottom: 100% !important;
 	}
-}
+}*/
 
 @media (min-width: 768px) {
 	#footer-first-contact #footer-contact, #footer-first-contact #footer-state-seal {
@@ -87,6 +87,10 @@ div#block-mbp-defaults-mbp-12 {
 .embed-container iframe {
   min-height: 950px;
   height: 100%;
+}
+
+.embed-responsive-16by9 {
+	padding-bottom: 100% !important;
 }
 
 /*** Footer Content ***/
