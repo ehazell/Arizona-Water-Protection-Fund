@@ -78,6 +78,11 @@ div#block-mbp-defaults-mbp-12 {
 	margin-bottom: 45px;
 }
 
+.embed-container iframe {
+  min-height: 950px;
+  height: 100%;
+}
+
 /*** Footer Content ***/
 
 #footer-contact {
