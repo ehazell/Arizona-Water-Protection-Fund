@@ -12,6 +12,12 @@ body {
 	 }
 }
 
+@media (max-width: 767px) {
+	.embed-responsive-16by9 {
+		padding-bottom: 100% !important;
+	}
+}
+
 @media (min-width: 768px) {
 	#footer-first-contact #footer-contact, #footer-first-contact #footer-state-seal {
 	float: right;
