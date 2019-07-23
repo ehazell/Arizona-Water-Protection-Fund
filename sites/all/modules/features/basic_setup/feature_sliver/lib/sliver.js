@@ -9,6 +9,13 @@ _gaq.push(['_trackPageview']);
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 
+//Site improve
+(function() {
+    var sz = document.createElement('script'); sz.type = 'text/javascript'; sz.async = true;
+    sz.src = '//siteimproveanalytics.com/js/siteanalyze_6428.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sz, s);
+})();
+
 
 jQuery(function($) {
 
@@ -19,9 +26,11 @@ jQuery(function($) {
     sliverLink.rel = 'stylesheet'
     document.body.appendChild(sliverLink);
 
+
+
     $(window).bind("load", function () {
         var sliverDiv = document.createElement('div');
-        sliverDiv.classList.add('sliver-container');
+        sliverDiv.className = "sliver-container";
         sliverDiv.innerHTML = '<ul class="sliver-ul">'
             /* Agency Directory */
             + '<li class="sliver-li-left"><a href="https://az.gov/agency-directory" title="Search a Directory of All State Agencies" target="_blank">'
@@ -46,7 +55,12 @@ jQuery(function($) {
             + '<img id="sliver-logo" src="https://static.az.gov/sliver/images/logo-small.png" title="AZ.Gov" alt="Magnifying glass symbolizing search az.gov" /></a></li> '
             + '</ul>';
         + '</div>';
+        var children = document.body.childNodes;
+        if (!document.getElementById("skip-link")) {
+            document.body.insertBefore(sliverDiv, document.body.firstChild);
+        }else{
+            document.body.insertBefore(sliverDiv, children[2]);
+        }
 
-        document.body.insertBefore(sliverDiv, document.body.firstChild);
     });
 });
