@@ -638,7 +638,8 @@ class ctools_export_ui {
     }
   }
 
-  function add_page($js, $input, $step = NULL) {
+  public function add_page($js, $input, $step = NULL) {
+    $args = func_get_args();
     drupal_set_title($this->get_page_title('add'), PASS_THROUGH);
 
     // If a step not set, they are trying to create a new item. If a step
@@ -661,7 +662,7 @@ class ctools_export_ui {
       'no_redirect' => TRUE,
       'step' => $step,
       // Store these in case additional args are needed.
-      'function args' => func_get_args(),
+      'function args' => $args,
     );
 
     $output = $this->edit_execute_form($form_state);
@@ -675,7 +676,8 @@ class ctools_export_ui {
   /**
    * Main entry point to edit an item.
    */
-  function edit_page($js, $input, $item, $step = NULL) {
+  public function edit_page($js, $input, $item, $step = NULL) {
+    $args = func_get_args();
     drupal_set_title($this->get_page_title('edit', $item), PASS_THROUGH);
 
     // Check to see if there is a cached item to get if we're using the wizard.
@@ -697,7 +699,7 @@ class ctools_export_ui {
       'no_redirect' => TRUE,
       'step' => $step,
       // Store these in case additional args are needed.
-      'function args' => func_get_args(),
+      'function args' => $args,
     );
 
     $output = $this->edit_execute_form($form_state);
@@ -711,7 +713,8 @@ class ctools_export_ui {
   /**
    * Main entry point to clone an item.
    */
-  function clone_page($js, $input, $original, $step = NULL) {
+  public function clone_page($js, $input, $original, $step = NULL) {
+    $args = func_get_args();
     drupal_set_title($this->get_page_title('clone', $original), PASS_THROUGH);
 
     // If a step not set, they are trying to create a new clone. If a step
@@ -751,7 +754,7 @@ class ctools_export_ui {
       'no_redirect' => TRUE,
       'step' => $step,
       // Store these in case additional args are needed.
-      'function args' => func_get_args(),
+      'function args' => $args,
     );
 
     $output = $this->edit_execute_form($form_state);
@@ -1231,7 +1234,8 @@ class ctools_export_ui {
   /**
    * Page callback to import information for an exportable item.
    */
-  function import_page($js, $input, $step = NULL) {
+  public function import_page($js, $input, $step = NULL) {
+    $args = func_get_args();
     drupal_set_title($this->get_page_title('import'), PASS_THROUGH);
     // Import is basically a multi step wizard form, so let's go ahead and
     // use CTools' wizard.inc for it.
@@ -1256,7 +1260,7 @@ class ctools_export_ui {
       'no_redirect' => TRUE,
       'step' => $step,
       // Store these in case additional args are needed.
-      'function args' => func_get_args(),
+      'function args' => $args,
     );
 
     // import always uses the wizard.
