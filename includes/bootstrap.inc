@@ -8,7 +8,7 @@
 /**
  * The current system version.
  */
-define('VERSION', '7.68');
+define('VERSION', '7.67');
 
 /**
  * Core API compatibility.
@@ -704,19 +704,6 @@ function drupal_environment_initialize() {
   // Set sane locale settings, to ensure consistent string, dates, times and
   // numbers handling.
   setlocale(LC_ALL, 'C');
-
-  // PHP's built-in phar:// stream wrapper is not sufficiently secure. Override
-  // it with a more secure one, which requires PHP 5.3.3. For lower versions,
-  // unregister the built-in one without replacing it. Sites needing phar
-  // support for lower PHP versions must implement hook_stream_wrappers() to
-  // register their desired implementation.
-  if (in_array('phar', stream_get_wrappers(), TRUE)) {
-    stream_wrapper_unregister('phar');
-    if (version_compare(PHP_VERSION, '5.3.3', '>=')) {
-      include_once DRUPAL_ROOT . '/includes/file.phar.inc';
-      file_register_phar_wrapper();
-    }
-  }
 }
 
 /**
@@ -760,6 +747,31 @@ function drupal_settings_initialize() {
     include_once DRUPAL_ROOT . '/' . conf_path() . '/settings.php';
   }
   $is_https = drupal_is_https();
+
+  // Load environmental config, if present.
+  if (isset($_SERVER['PRESSFLOW_SETTINGS'])) {
+    $pressflow_settings = json_decode($_SERVER['PRESSFLOW_SETTINGS'], TRUE);
+    foreach ($pressflow_settings as $key => $value) {
+      // One level of depth should be enough for $conf and $database.
+      if ($key == 'conf') {
+        foreach($value as $conf_key => $conf_value) {
+          $conf[$conf_key] = $conf_value;
+        }
+      }
+      elseif ($key == 'databases') {
+        // Protect default configuration but allow the specification of
+        // additional databases. Also, allows fun things with 'prefix' if they
+        // want to try multisite.
+        if (!isset($databases) || !is_array($databases)) {
+          $databases = array();
+        }
+        $databases = array_replace_recursive($databases, $value);
+      }
+      else {
+        $$key = $value;
+      }
+    }
+  }
 
   if (isset($base_url)) {
     // Parse fixed base URL from settings.php.
@@ -1998,7 +2010,7 @@ function watchdog($type, $message, $variables = array(), $severity = WATCHDOG_NO
 
   // It is possible that the error handling will itself trigger an error. In that case, we could
   // end up in an infinite loop. To avoid that, we implement a simple static semaphore.
-  if (!$in_error_state && function_exists('module_invoke_all')) {
+  if (!$in_error_state && function_exists('module_implements')) {
     $in_error_state = TRUE;
 
     // The user object may not exist in all conditions, so 0 is substituted if needed.
@@ -2021,7 +2033,9 @@ function watchdog($type, $message, $variables = array(), $severity = WATCHDOG_NO
     );
 
     // Call the logging hooks to log/process the message
-    module_invoke_all('watchdog', $log_entry);
+    foreach (module_implements('watchdog') as $module) {
+      module_invoke($module, 'watchdog', $log_entry);
+    }
 
     // It is critical that the semaphore is only cleared here, in the parent
     // watchdog() call (not outside the loop), to prevent recursive execution.
@@ -2516,7 +2530,6 @@ function drupal_bootstrap($phase = NULL, $new_phase = TRUE) {
 
       switch ($current_phase) {
         case DRUPAL_BOOTSTRAP_CONFIGURATION:
-          require_once DRUPAL_ROOT . '/includes/request-sanitizer.inc';
           _drupal_bootstrap_configuration();
           break;
 
@@ -2621,10 +2634,6 @@ function _drupal_exception_handler($exception) {
     _drupal_log_error(_drupal_decode_exception($exception), TRUE);
   }
   catch (Exception $exception2) {
-    // Add a 500 status code in case an exception was thrown before the 500
-    // status could be set (e.g. while loading a maintenance theme from cache).
-    drupal_add_http_header('Status', '500 Internal Server Error');
-
     // Another uncaught exception was thrown while handling the first one.
     // If we are displaying errors, then do so with no possibility of a further uncaught exception being thrown.
     if (error_displayable()) {
@@ -2650,6 +2659,7 @@ function _drupal_bootstrap_configuration() {
   drupal_settings_initialize();
 
   // Sanitize unsafe keys from the request.
+  require_once DRUPAL_ROOT . '/includes/request-sanitizer.inc';
   DrupalRequestSanitizer::sanitize();
 }
 
@@ -2769,6 +2779,22 @@ function _drupal_bootstrap_database() {
  */
 function _drupal_bootstrap_variables() {
   global $conf;
+
+  // Pressflow Smart Start
+  if (!empty($GLOBALS['databases']) && variable_get('pressflow_smart_start', FALSE)) {
+    try {
+      $result = db_query('SELECT s.name FROM {system} s WHERE s.name = :name', array(':name' => 'system'));
+    } catch (PDOException $e) {
+      if ($e->getCode() == '2003') {
+        header('Status: 550 Database Offline');
+        exit();
+      }
+      elseif ($e->getCode() == '42S02') {
+        include_once DRUPAL_ROOT . '/includes/install.inc';
+        install_goto('install.php');
+      }
+    }
+  }
 
   // Initialize the lock system.
   require_once DRUPAL_ROOT . '/' . variable_get('lock_inc', 'includes/lock.inc');
@@ -3800,12 +3826,8 @@ function _drupal_shutdown_function() {
   chdir(DRUPAL_ROOT);
 
   try {
-    // Manually iterate over the array instead of using a foreach loop.
-    // A foreach operates on a copy of the array, so any shutdown functions that
-    // were added from other shutdown functions would never be called.
-    while ($callback = current($callbacks)) {
+    while (list($key, $callback) = each($callbacks)) {
       call_user_func_array($callback['callback'], $callback['arguments']);
-      next($callbacks);
     }
   }
   catch (Exception $exception) {

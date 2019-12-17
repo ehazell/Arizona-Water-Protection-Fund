@@ -6,8 +6,3 @@ core = 7.x
 dependencies[] = field
 dependencies[] = options
 files[] = tests/list.test
-
-; Information added by Drupal.org packaging script on 2019-12-04
-version = "7.68"
-project = "drupal"
-datestamp = "1575466417"
