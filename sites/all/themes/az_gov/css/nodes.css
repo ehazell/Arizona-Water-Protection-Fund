@@ -134,7 +134,7 @@
   }
   #page .node-basic-slideshow.basic-slideshow-style-2 .field-slideshow-pager, #colorbox .node-basic-slideshow.basic-slideshow-style-2 .field-slideshow-pager {
     position: absolute;
-    left: 50%;
+    left: 41%;
     bottom: 20px;
     z-index: 10;
   }
