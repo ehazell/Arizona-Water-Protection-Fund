@@ -5,7 +5,32 @@
         </div>
     <?php endif; ?>
 
+    <div class="col-sm-8 col-xs-12">
     <?php include_once('footer-contact.inc'); ?>
+  </div>
+
+  <div class="col-sm-4 col-xs-12 subscription">
+    <h2>Arizona Water Bank E-mail Sign-Up</h2>
+    <p>Sign up to get updates about the Arizona Water Banking Authority! </p>
+    <form accept-charset="UTF-8" action="/footer-sign" class="webform-client-form webform-client-form-107" id="webform-client-form-107" method="post">
+      <div id="SignUp" class="form-group">
+        <div class="form-item webform-component webform-component-email webform-component--email form-group form-item form-item-submitted-email form-type-webform-email form-group error-processed">
+          <input class="email form-control form-text form-email required" id="edit-submitted-email" title="Enter your email to subscribe for updates" placeholder="Email for updates" name="submitted[email]" required="required" size="60" type="email">
+          <!-- <input class="webform-submit button-primary btn btn-primary form-submit" name="op" type="submit" value="Sign up"> -->
+          <div class="form-actions">
+            <button class="webform-submit button-primary btn btn-primary form-submit" name="op" type="submit" value="Submit">Sign-Up</button>
+          </div>
+        </div>
+        <input type="hidden" name="details[sid]">
+        <input type="hidden" name="details[page_num]" value="1">
+        <input type="hidden" name="details[page_count]" value="1">
+        <input type="hidden" name="details[finished]" value="0">
+        <input type="hidden" name="form_build_id" value="form-uUq_9uOZl7zQiEV3X7aHQTOV5ePYMpMeilSisnd36Yk">
+        <input type="hidden" name="form_token" value="KXGdabUIsMyogZXOauIm_ECClyGXcbyIOx8rRHFX1cY">
+        <input type="hidden" name="form_id" value="webform_client_form_107">
+        </div>
+      </form>
+  </div>
 
     <?php if ($page['footer_second']) : ?>
         <div id="region-footer-second">
