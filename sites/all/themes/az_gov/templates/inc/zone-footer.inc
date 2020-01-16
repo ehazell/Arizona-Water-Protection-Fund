@@ -37,4 +37,7 @@
             <?php print render($page['footer_second']); ?>
         </div>
     <?php endif; ?>
+    <div class="col-sm-12 policy-sitemap">
+      <div class="footer-links">&copy; 1996 - <?php echo date("Y"); ?> Arizona Water Banking Authority - <a href="http://az.gov/policies">Statements & Policies</a> | <a href="/sitemap.xml">Site Map</a></div>
+    </div>
 </div>
