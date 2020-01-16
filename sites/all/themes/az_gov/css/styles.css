@@ -34,7 +34,7 @@ body {
 @media (min-width: 992px), all {
 	.col-md-9 {
 	width: 74%;
-	}	
+	}
 }
 
 
@@ -96,7 +96,7 @@ div#block-mbp-defaults-mbp-12 {
 }
 
 #footer-contact .footer-info .footer-address {
-	box-shadow: none !important; 
+	box-shadow: none !important;
 	background: none !important;
 	text-align: right;
 }
@@ -118,4 +118,9 @@ div#block-mbp-defaults-mbp-12 {
 	border: none !important;
 	padding: 3px 0;
 	font-size: 18px !important;
+}
+
+.footer-links {
+  text-align: center;
+  padding: 10px 0px;
 }
