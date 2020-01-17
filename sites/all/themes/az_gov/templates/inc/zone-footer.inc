@@ -12,7 +12,7 @@
   <div class="col-sm-4 col-xs-12 subscription">
     <h2>E-mail Subscription</h2>
     <p>Sign up to get updates about the Arizona Water Protection Fund! </p>
-    <form accept-charset="UTF-8" action="/footer-sign" class="webform-client-form webform-client-form-107" id="webform-client-form-107" method="post">
+    <form accept-charset="UTF-8" action="/footer-sign" class="webform-client-form webform-client-form-47" id="webform-client-form-47" method="post">
       <div id="SignUp" class="form-group">
         <div class="form-item webform-component webform-component-email webform-component--email form-group form-item form-item-submitted-email form-type-webform-email form-group error-processed">
           <input class="email form-control form-text form-email required" id="edit-submitted-email" title="Enter your email to subscribe for updates" placeholder="Email for updates" name="submitted[email]" required="required" size="60" type="email">

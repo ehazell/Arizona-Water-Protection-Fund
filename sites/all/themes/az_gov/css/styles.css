@@ -110,15 +110,14 @@ div#block-mbp-defaults-mbp-12 {
 .webform-client-form- .form-item {
   margin-left: 10px;
 }
-.webform-client-form-107 .form-actions {
+.webform-client-form-47 .form-actions {
   clear: both;
   margin-top: 35px;
   display: inline-block;
   margin-left: 15px;
   margin-left: 10px;
 }
-.webform-client-form-107 .form-actions .btn-primary {
-  /* background-color: #1e417b !important; */
+.webform-client-form-47 .form-actions .btn-primary {
   width: 150px;
   font-size: 18px;
 }
@@ -230,7 +229,7 @@ div#block-mbp-defaults-mbp-12 {
   background-color: #00adef !important;
   color: #fff;
 }
-body.page-node-107 .links a {
+body.page-node-47 .links a {
   display: none;
 }
 .subscription p {
