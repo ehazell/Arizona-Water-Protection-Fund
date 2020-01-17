@@ -105,6 +105,24 @@ div#block-mbp-defaults-mbp-12 {
 	padding-bottom: 100% !important;
 }
 
+/*** Web Form ***/
+
+.webform-client-form- .form-item {
+  margin-left: 10px;
+}
+.webform-client-form-107 .form-actions {
+  clear: both;
+  margin-top: 35px;
+  display: inline-block;
+  margin-left: 15px;
+  margin-left: 10px;
+}
+.webform-client-form-107 .form-actions .btn-primary {
+  /* background-color: #1e417b !important; */
+  width: 150px;
+  font-size: 18px;
+}
+
 /*** Footer Content ***/
 
 .footer-content {
@@ -204,7 +222,7 @@ div#block-mbp-defaults-mbp-12 {
 }
 #zone-footer .form-actions {
   display: inline-block;
-  margin: 0px 5px;
+  margin: -1px 5px;
   float: none;
 }
 #zone-footer button.webform-submit {

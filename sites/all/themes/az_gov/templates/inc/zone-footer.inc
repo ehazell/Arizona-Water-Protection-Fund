@@ -10,7 +10,7 @@
   </div>
 
   <div class="col-sm-4 col-xs-12 subscription">
-    <h2>Arizona Water Protection Fund E-mail Sign-Up</h2>
+    <h2>E-mail Subscriptionp</h2>
     <p>Sign up to get updates about the Arizona Water Protection Fund! </p>
     <form accept-charset="UTF-8" action="/footer-sign" class="webform-client-form webform-client-form-107" id="webform-client-form-107" method="post">
       <div id="SignUp" class="form-group">
