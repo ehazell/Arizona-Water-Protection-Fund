@@ -476,8 +476,8 @@ html, body {
 }
 
 #zone-footer {
-  position: relative;
-  bottom: 0;
+  position: absolute;
+  bottom: auto;
   width: 100%;
   display: block;
   height: auto;
