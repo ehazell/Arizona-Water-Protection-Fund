@@ -96,6 +96,10 @@ div#block-mbp-defaults-mbp-12 {
   display: none !important;
 }
 
+.node-basic-slideshow #field-slideshow-1-pager {
+  text-align: center;
+}
+
 .meeting-description {
 	padding: 0 20px;
 	margin-top: 45px;
