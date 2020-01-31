@@ -92,7 +92,8 @@ body {
 }
 
 div#block-mbp-defaults-mbp-12 {
-    margin-top: 30px;
+    /*margin-top: 30px;*/
+  display: none !important;
 }
 
 .meeting-description {
