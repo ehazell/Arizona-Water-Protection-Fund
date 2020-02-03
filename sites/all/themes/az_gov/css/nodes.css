@@ -165,6 +165,7 @@
     border-radius: 20px;
     padding: 5px 10px;
     margin: 0 5px;
+    color: transparent !important;
   }
 }
 #page .node-form .vertical-tabs-panes, #colorbox .node-form .vertical-tabs-panes {
