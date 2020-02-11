@@ -653,7 +653,7 @@ $conf['x_frame_options'] = '';
 
 // Require HTTPS.
 if (isset($_SERVER['PANTHEON_ENVIRONMENT']) && $_SERVER['PANTHEON_ENVIRONMENT'] === 'live' ) {
-  if ($_SERVER['HTTP_HOST'] !=  'azwpf.gov' || !isset($_SERVER['HTTP_X_SSL']) || $_SERVER['HTTP_X_SSL'] != 'ON') {
+  if ($_SERVER['HTTP_HOST'] !=  'www.azwpf.gov' || !isset($_SERVER['HTTP_X_SSL']) || $_SERVER['HTTP_X_SSL'] != 'ON') {
     header('HTTP/1.0 301 Moved Permanently');
     header('Location: https://www.azwpf.gov' . $_SERVER['REQUEST_URI']);
     exit();
